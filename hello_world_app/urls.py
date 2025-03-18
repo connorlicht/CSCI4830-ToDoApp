@@ -16,6 +16,9 @@ Including another URLconf
 """
 from django.urls import path
 from hello_world_app import views
+from django.contrib import admin
+from django.urls import include, path
+
 
 urlpatterns = [
     path('todoevent', views.event_view, name='event_view'), 
@@ -25,4 +28,8 @@ urlpatterns = [
     
     path('todoevent/delete/<int:event_id>/', 
         views.delete_event, name='delete_event'),
+    
+    path('users/register', views.register_view, name='register_view'),
+    
+    path('admin/', admin.site.urls),
 ]

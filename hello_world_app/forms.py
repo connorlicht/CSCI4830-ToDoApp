@@ -7,8 +7,7 @@ class PersonForm(forms.ModelForm):
     class Meta:
         model = Person
         fields = ['Name']
-    
-    
+      
 class ToDoEventForm(forms.ModelForm):
     class Meta:
         model = ToDoEvent

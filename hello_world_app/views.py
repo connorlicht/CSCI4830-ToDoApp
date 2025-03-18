@@ -1,9 +1,21 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
 from .models import ToDoEvent
 from .forms import ToDoEventForm
 
 def index(request):
     return render(request, 'index_hello.html')
+
+def register_view(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('event_view')
+    else:
+        form = UserCreationForm()
+        
+    return render(request, "users/register.html", {"form" : form})
 
 def event_view(request):
     events = ToDoEvent.objects.all()
