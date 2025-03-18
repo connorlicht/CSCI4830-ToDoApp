@@ -18,5 +18,11 @@ from django.urls import path
 from hello_world_app import views
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('todoevent', views.event_view, name='event_view'), 
+    
+    path('todoevent/edit/<int:event_id>/', 
+        views.edit_event, name='edit_event'),
+    
+    path('todoevent/delete/<int:event_id>/', 
+        views.delete_event, name='delete_event'),
 ]
