@@ -6,6 +6,18 @@
     <title>ToDoApp</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>To Do List App</h1>
+    <form method="POST" action="{% url 'register_view' %}">
+      {% csrf_token %}  
+      <button type="submit"> 
+        Register an New User
+      </button>
+    </form>
+    <form method="POST" action="{% url 'login_view' %}">
+      {% csrf_token %}  
+      <button type="submit"> 
+        Log In
+      </button>
+    </form>
   </body>
 </html>

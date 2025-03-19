@@ -22,4 +22,10 @@
     </td>
   </tr>
   {% endfor %}
+  <form method="POST" action="{% url 'logout_view' %}">
+    {% csrf_token %}  
+    <button type="submit"> 
+      Log Out
+    </button>
+  </form>
 </table> </body> </html>

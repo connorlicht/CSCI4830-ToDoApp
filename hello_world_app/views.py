@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, get_user_model
+from django.contrib.auth.decorators import login_required
 from .models import ToDoEvent
 from .forms import ToDoEventForm
 
@@ -10,26 +12,49 @@ def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            login(request, form.save())
             return redirect('event_view')
     else:
         form = UserCreationForm()
         
     return render(request, "users/register.html", {"form" : form})
 
+def login_view(request):
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            if "next" in request.POST:
+                return redirect(request.POST.get("next"))
+            else: 
+                return redirect("event_view")
+    else:
+        form = AuthenticationForm()
+        
+    return render(request, "users/login.html", {"form" : form})
+
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('home')
+
+@login_required(login_url="/login")
 def event_view(request):
-    events = ToDoEvent.objects.all()
+    events = ToDoEvent.objects.filter(owner=request.user)
     
     if request.method == "POST":
         form = ToDoEventForm(request.POST)
         if form.is_valid():
-            form.save()
+            newevent = form.save(commit=False)
+            newevent.owner = request.user
+            newevent.save()
             return redirect('event_view')
     else:
         form = ToDoEventForm()
             
     return render(request, 'event_list.html', {'form': form, 'events': events})
 
+@login_required(login_url="/login")
 def edit_event(request, event_id):
     event = get_object_or_404(ToDoEvent, id=event_id)
     
@@ -44,6 +69,7 @@ def edit_event(request, event_id):
             
     return render(request, 'event_edit.html', {'form': form, 'event': event})
 
+@login_required(login_url="/login")
 def delete_event(request, event_id):
     # Delete a specific score
     event = get_object_or_404(ToDoEvent, id=event_id)
