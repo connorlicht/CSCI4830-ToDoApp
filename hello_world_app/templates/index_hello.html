@@ -4,4 +4,15 @@
 Home
 {% endblock %}
 {% block content %}
+    <div class="container" style="padding: 100px;">
+        <img src="/static/images/home2.png" class="rounded mx-auto d-block" width="800">
+        <h1 class="text-center">Keep track of all your tasks</h1>
+        <p class="text-center">This simple To-Do List App allows you to keep track of all your tasks while also storing them via the cloud.</p>
+        <form method="POST" action="{% url 'select_event_list' %}" class="text-center">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">
+            All To-Do Lists
+            </button>
+         </form> 
+    </div>
 {% endblock %}
