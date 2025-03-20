@@ -1,26 +1,25 @@
 {% extends 'base_hello.html' %}
-
 {% block content %}
 <html lang="en">
-<body>
-<h1>Event List</h1>
-<table>
-  {% for event in events %}
-  <tr>
-    <td>{{ event.EventTitle }}</td>
-    <td>
-      <a href="{% url 'edit_event' event.id %}">Edit</a>
-      <a href="{% url 'delete_event' event.id %}">Delete</a>
-    </td>
-  </tr>
-  {% endfor %}
-  <form method="POST" action="{% url 'logout_view' %}">
-    {% csrf_token %}  
-    <button type="submit"> 
-      Log Out
-    </button>
-  </form>
-</table> 
-</body> 
+   <body>
+      <h1>Event List</h1>
+      <table>
+         {% for event in events %}
+         <tr>
+            <td>{{ event.EventTitle }}</td>
+            <td>
+               <a href="{% url 'edit_event' event.id %}">Edit</a>
+               <a href="{% url 'delete_event' event.id %}">Delete</a>
+            </td>
+         </tr>
+         {% endfor %}
+         <form method="POST" action="{% url 'logout_view' %}">
+            {% csrf_token %}  
+            <button type="submit"> 
+            Log Out
+            </button>
+         </form>
+      </table>
+   </body>
 </html>
 {% endblock %}

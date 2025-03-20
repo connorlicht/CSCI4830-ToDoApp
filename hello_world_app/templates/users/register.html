@@ -1,46 +1,43 @@
 {% extends 'base_hello.html' %}
-
 {% block title %}
-  Register
+Register
 {% endblock %}
-
 {% block content %} 
-    <form class="form-with-validation" method="POST"> 
-        {% csrf_token %}
-        <div class="container-fluid" style="padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <div class="container-fluid text-center" style="padding:0px;">
-                        <h1>Register</h1>
-                    </div>
-                    <table class="table table-bordered table-striped table-dark">
-                        {% for field in form %}
-                        <tr>
-                        <td>
-                            {{field.label_tag}}
-                        </td>
-                        <td>
-                            {{field}}
-                        </td>
-                        <td>
-                            {{field.errors}}
-                        </td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-                <div class="col"></div>
+<form class="form-with-validation" method="POST">
+   {% csrf_token %}
+   <div class="container-fluid" style="padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+      <div class="row">
+         <div class="col"></div>
+         <div class="col">
+            <div class="container-fluid text-center" style="padding:0px;">
+               <h1>Register</h1>
             </div>
-        </div>
-        {% if reqest.GET.next%}
-            <input type="hidden" name="next" value="{{ request.GET.next }}" />
-        {% endif %}
-        <div class="container-fluid text-center" style="padding: 0px;">
-            <button class="btn btn-primary"> 
-                Submit
-            </button>
-        </div>
-    
-    </form>
+            <table class="table table-bordered table-striped table-dark">
+               {% for field in form %}
+               <tr>
+                  <td>
+                     {{field.label_tag}}
+                  </td>
+                  <td>
+                     {{field}}
+                  </td>
+                  <td>
+                     {{field.errors}}
+                  </td>
+               </tr>
+               {% endfor %}
+            </table>
+         </div>
+         <div class="col"></div>
+      </div>
+   </div>
+   {% if reqest.GET.next%}
+   <input type="hidden" name="next" value="{{ request.GET.next }}" />
+   {% endif %}
+   <div class="container-fluid text-center" style="padding: 0px;">
+      <button class="btn btn-primary"> 
+      Submit
+      </button>
+   </div>
+</form>
 {% endblock %}

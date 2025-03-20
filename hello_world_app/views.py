@@ -114,10 +114,5 @@ def select_event_list(request):
     return render(request, 'select_event_list.html', {'eventLists': eventLists})
 
 
-# @login_required(login_url="/login")
-# def search_event(request):
-#     return render(request, 'search_event.html')
-
-
 
             
