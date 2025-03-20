@@ -1,0 +1,193 @@
+/* static/css/style.css */
+
+/* Darker Navbar background color */
+.bg-navbar {
+  background-color: #32161F;  /* Darker brown for the navbar */
+}
+
+/* Darker Body background color */
+.bg-body {
+  background-color: #775B59;  /* Dark gray for the body background */
+}
+
+/* Ensure that padding area (pt-5) does not have a white background */
+.container.pt-5 {
+  background-color: #775B59 !important;
+}
+
+.container-fluid {
+  padding: 100px;
+}
+
+.form-select {
+  background-color: #32161F;  /* Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.form-check-input {
+  margin: 0 auto;
+  display: block;  /* Makes the checkbox a block element, allowing centering */
+}
+
+.form-check {
+  display: flex;
+  justify-content: center;  /* Centers content horizontally */
+  align-items: center;      /* Centers content vertically */
+}
+
+
+select {
+  background-color: #32161F;  /* Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark Theme for Body */
+body {
+  background-color: #775B59;  /* Dark background for the body */
+  color: #F1F1F1;  /* Lighter text color for better readability */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header and Subheading colors for better contrast */
+h1, h2 {
+  background-color: #775B59;
+  color: #A1C6C0;  /* Light greenish color for headings */
+}
+
+/* Navbar Text Color */
+.navbar {
+  color: white;
+}
+
+/* Navbar Links Hover effect */
+.navbar .navbar-nav .nav-link {
+  color: #F1F1F1;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #000000;  /* Softer greenish hover effect for navbar links */
+}
+
+/* Button Colors */
+.btn {
+  background-color: #32161F;  /* Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-warning {
+  background-color: #8d0000a7;  /* Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-info {
+  background-color: #003b24;  /* Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #A1C6C0;
+  color: #000000
+}
+
+/* Card Styles */
+.card {
+  background-color: #775B59;  /* Dark gray background for cards */
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Darker shadow */
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #32161F;  /* Dark brown header */
+  color: #F1F1F1;
+  font-size: 1.4rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-body {
+  color: #F1F1F1;  /* Light text for the body of the card */
+  padding: 20px;
+  font-size: 1.1rem;
+}
+
+.card-footer {
+  background-color: #775B59;  /* Dark footer background */
+  text-align: center;
+  padding: 10px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  /* background-color: #32161F;  Darker brown background */
+  color: #F1F1F1;  /* Light text color */
+  border: none;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #32161F;  /* Darker border color */
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #F1F1F1;  /* Light text color inside input fields */
+  background-color: #32161F;  /* Darker background for inputs */
+}
+
+input:focus, textarea:focus {
+  border-color: #A1C6C0;  /* Softer greenish border on focus */
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #32161F;  /* Dark brown for submit button */
+  color: #F1F1F1;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #A1C6C0;
+  color: #000000
+}
+

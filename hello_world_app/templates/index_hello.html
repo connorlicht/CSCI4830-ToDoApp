@@ -1,23 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ToDoApp</title>
-  </head>
-  <body>
-    <h1>To Do List App</h1>
-    <form method="POST" action="{% url 'register_view' %}">
-      {% csrf_token %}  
-      <button type="submit"> 
-        Register an New User
-      </button>
-    </form>
-    <form method="POST" action="{% url 'login_view' %}">
-      {% csrf_token %}  
-      <button type="submit"> 
-        Log In
-      </button>
-    </form>
-  </body>
-</html>
+{% extends 'base_hello.html' %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block content %}
+{% endblock %}

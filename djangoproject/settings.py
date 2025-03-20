@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello_world_app'
+    'hello_world_app',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Directory for collected static
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
