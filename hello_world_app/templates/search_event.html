@@ -1,5 +1,4 @@
 {% extends 'base_hello.html' %}
-{% load pagination_tags %}
 
 {% block title %}
   To Do List
@@ -10,25 +9,6 @@
    <div class="row">
       <div class="col order-last">
          <h1>To-Do List</h1>
-         <table class="table table-bordered table-striped table-dark" style="table-layout: auto; margin-bottom: 0px;">
-            <tr>
-               <form method="GET" action="{% url 'event_view' eventList %}" class="search-form">
-                  <div class="d-flex">
-                     <td>
-                        <div class="p-2 flex-grow-1">
-                           <input type="text" name="search" value="{{ search_query }}" placeholder="Search Tasks..." class="search-form">
-                        </div>
-                     </td>
-                     <td>
-                        <div class="p-2">
-                           <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                     </td>
-                  </div>
-               </form>
-            </tr>
-         </table>
-
          <table class="table table-bordered table-striped table-dark" style="table-layout: auto;">
             {% for event in pagedEvents %}
             <tr>
@@ -68,30 +48,31 @@
             </tr>
             {% endfor %}
          </table>
-         <div class="pagination">
-            {% if pagedEvents.has_previous %}
-            <a class="btn btn-primary" href="?{% url_replace request 'page' 1 %}">&laquo; First</a>
-            <a class="btn btn-primary" href="?{% url_replace request 'page' pagedEvents.previous_page_number %}">Previous</a>
-            {% endif %}
-            {% if pagedEvents.has_next %}
-            <a class="btn btn-primary" href="?{% url_replace request 'page' pagedEvents.next_page_number %}">Next</a>
-            <a class="btn btn-primary" href="?{% url_replace request 'page' pagedEvents.paginator.num_pages %}">Last &raquo;</a>
-            {% endif %}
-         </div>
+          {% if pagedEvents.has_previous %}
+          <a class="btn btn-primary" type="submit" href="?page=1">&laquo First</a>
+          <a class="btn btn-primary" type="submit" href="?page={{ pagedEvents.previous_page_number }}">Prevous</a>
+          {% endif %}
+
+          {% if pagedEvents.has_next %}
+            <a class="btn btn-primary" type="submit" href="?page={{ pagedEvents.next_page_number}}">Next</a>
+            <a class="btn btn-primary" type="submit" href="?page={{ pagedEvents.paginator.num_pages }}">Last &raquo</a>
+          {% endif %}
       </div>
       <div class="col order-first">
         <h1>New Task</h1>
         <form class="form-horizontal" method="POST">
            {% csrf_token %}
-           <table class="table table-bordered table-striped table-dark">
+           <table class="table table-bordered table-striped table-dark ">
               {% for field in form %}
               <tr>
                  <td>{{ field.label_tag }}</td>
-                 <td>{{ field }}</td>
+                 <td>
+                       {{ field }}
+                 </td>
               </tr>
               {% endfor %}
            </table>
-           <button type="submit" class="btn btn-success">Save</button>
+           <button type="submit">Save</button>
         </form>
      </div>     
    </div>

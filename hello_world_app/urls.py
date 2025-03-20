@@ -6,6 +6,8 @@ urlpatterns = [
 
     path('todoevent/<str:eventList>/', views.event_view, name='event_view'),
     
+    # path('searchevent/<str:eventList>/', views.search_event, name='search_event'),
+    
     path('selecteventlist', views.select_event_list, name='select_event_list'),
     
     path('todoevent/edit/<int:event_id>/', views.edit_event, name='edit_event'),

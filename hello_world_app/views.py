@@ -5,21 +5,25 @@ from django.contrib.auth.decorators import login_required
 from .models import ToDoEvent
 from .forms import ToDoEventForm
 from django.core.paginator import Paginator
+from django.db.models import Q
+from django.views.decorators.cache import never_cache
 
 def index(request):
     return render(request, 'index_hello.html')
 
+@never_cache
 def register_view(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             login(request, form.save())
-            return redirect('event_view')
+            return redirect('select_event_list')
     else:
         form = UserCreationForm()
         
     return render(request, "users/register.html", {"form" : form})
 
+@never_cache
 def login_view(request):
     if request.user.is_authenticated:
         return redirect("select_event_list")
@@ -42,13 +46,20 @@ def logout_view(request):
         logout(request)
         return redirect('home')
 
+
 @login_required(login_url="/login")
 def event_view(request, eventList):
+    search_query = request.GET.get('search', '')
+
     events = ToDoEvent.objects.filter(EventList=eventList, owner=request.user)
-    p = Paginator(ToDoEvent.objects.filter(EventList=eventList, owner=request.user), 8)
+
+    if search_query:
+        events = events.filter(Q(EventTitle__icontains=search_query) | Q(EventDescription__icontains=search_query))
+    
+    p = Paginator(events, 8)
     page = request.GET.get('page')
     pagedEvents = p.get_page(page)
-    
+
     if request.method == "POST":
         form = ToDoEventForm(request.POST)
         if form.is_valid():
@@ -59,7 +70,8 @@ def event_view(request, eventList):
     else:
         form = ToDoEventForm()
 
-    return render(request, 'event_list.html', {'form': form, 'events': events, 'eventList': eventList, 'pagedEvents': pagedEvents})
+    return render(request, 'event_list.html', {'form': form,'events': events,'eventList': eventList,'pagedEvents': pagedEvents,'search_query': search_query})
+
 
 
 @login_required(login_url="/login")
@@ -100,6 +112,11 @@ def select_event_list(request):
             return redirect('select_event_list')
     
     return render(request, 'select_event_list.html', {'eventLists': eventLists})
+
+
+# @login_required(login_url="/login")
+# def search_event(request):
+#     return render(request, 'search_event.html')
 
 
 

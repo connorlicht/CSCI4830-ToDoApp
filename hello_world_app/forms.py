@@ -9,7 +9,7 @@ class ToDoEventForm(forms.ModelForm):
     
     EventTitle = forms.CharField(label="Task Name:")
     EventDone = forms.BooleanField(
-        widget=forms.CheckboxInput(attrs={'class': 'form-check-input', 'role': 'switch', 'type': 'checkbox'}),
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         label="Mark as Done",
         required=False
     )
@@ -18,7 +18,7 @@ class ToDoEventForm(forms.ModelForm):
         label="Description:",
         required=False
     )
-    EventList = forms.CharField(label="To-Do List:")
+    EventList = forms.CharField(label="To-Do List:", initial="default")
 
     
 class ToDoListForm(forms.ModelForm):

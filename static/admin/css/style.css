@@ -2,17 +2,17 @@
 
 /* Darker Navbar background color */
 .bg-navbar {
-  background-color: #32161F;  /* Darker brown for the navbar */
+  background-color: #173753;  /* Darker brown for the navbar */
 }
 
 /* Darker Body background color */
 .bg-body {
-  background-color: #775B59;  /* Dark gray for the body background */
+  background-color: #000000;  /* Dark gray for the body background */
 }
 
 /* Ensure that padding area (pt-5) does not have a white background */
 .container.pt-5 {
-  background-color: #775B59 !important;
+  background-color: #000000 !important;
 }
 
 .container-fluid {
@@ -20,7 +20,7 @@
 }
 
 .form-select {
-  background-color: #32161F;  /* Darker brown background */
+  background-color: #173753;  /* Darker brown background */
   color: #F1F1F1;  /* Light text color */
   border: none;
   padding: 8px 20px;
@@ -42,7 +42,7 @@
 
 
 select {
-  background-color: #32161F;  /* Darker brown background */
+  background-color: #173753;  /* Darker brown background */
   color: #F1F1F1;  /* Light text color */
   border: none;
   padding: 8px 20px;
@@ -53,7 +53,7 @@ select {
 
 /* Dark Theme for Body */
 body {
-  background-color: #775B59;  /* Dark background for the body */
+  background-color: #000000;  /* Dark background for the body */
   color: #F1F1F1;  /* Lighter text color for better readability */
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -63,8 +63,8 @@ body {
 
 /* Header and Subheading colors for better contrast */
 h1, h2 {
-  background-color: #775B59;
-  color: #A1C6C0;  /* Light greenish color for headings */
+  background-color: #000000;
+  color: #ffffff;  /* Light greenish color for headings */
 }
 
 /* Navbar Text Color */
@@ -83,7 +83,7 @@ h1, h2 {
 
 /* Button Colors */
 .btn {
-  background-color: #32161F;  /* Darker brown background */
+  background-color: #173753;  /* Darker brown background */
   color: #F1F1F1;  /* Light text color */
   border: none;
   padding: 8px 20px;
@@ -113,13 +113,13 @@ h1, h2 {
 }
 
 .btn:hover {
-  background-color: #A1C6C0;
+  background-color: #ffffff;
   color: #000000
 }
 
 /* Card Styles */
 .card {
-  background-color: #775B59;  /* Dark gray background for cards */
+  background-color: #000000;  /* Dark gray background for cards */
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Darker shadow */
@@ -127,7 +127,7 @@ h1, h2 {
 }
 
 .card-header {
-  background-color: #32161F;  /* Dark brown header */
+  background-color: #173753;  /* Dark brown header */
   color: #F1F1F1;
   font-size: 1.4rem;
   padding: 10px;
@@ -141,7 +141,7 @@ h1, h2 {
 }
 
 .card-footer {
-  background-color: #775B59;  /* Dark footer background */
+  background-color: #000000;  /* Dark footer background */
   text-align: center;
   padding: 10px;
 }
@@ -152,7 +152,7 @@ h1, h2 {
 }
 
 label {
-  /* background-color: #32161F;  Darker brown background */
+  /* background-color: #173753;  Darker brown background */
   color: #F1F1F1;  /* Light text color */
   border: none;
   padding: 8px 20px;
@@ -164,20 +164,20 @@ label {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #32161F;  /* Darker border color */
+  border: 2px solid #173753;  /* Darker border color */
   border-radius: 5px;
   font-size: 1rem;
   color: #F1F1F1;  /* Light text color inside input fields */
-  background-color: #32161F;  /* Darker background for inputs */
+  background-color: #173753;  /* Darker background for inputs */
 }
 
 input:focus, textarea:focus {
-  border-color: #A1C6C0;  /* Softer greenish border on focus */
+  border-color: #ffffff;  /* Softer greenish border on focus */
   outline: none;
 }
 
 button[type="submit"] {
-  background-color: #32161F;  /* Dark brown for submit button */
+  background-color: #173753;  /* Dark brown for submit button */
   color: #F1F1F1;
   border: none;
   padding: 12px 30px;
@@ -187,7 +187,6 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #A1C6C0;
+  background-color: #ffffff;
   color: #000000
 }
-
