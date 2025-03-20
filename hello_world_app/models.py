@@ -8,6 +8,3 @@ class ToDoEvent(models.Model):
     EventList = models.CharField(max_length=200, default="default")
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     
-class ToDoList(models.Model):
-    ListName = models.CharField(max_length=200)
-    Events = models.ManyToManyField(ToDoEvent)
